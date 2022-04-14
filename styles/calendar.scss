@@ -1,0 +1,54 @@
+.rbc-calendar {
+    .rbc-month-row + .rbc-month-row,
+    .rbc-month-view,
+    .rbc-day-bg + .rbc-day-bg,
+    .rbc-header {
+        border-color: #131313;
+    }
+
+    .rbc-month-row {
+        overflow:visible;
+    }
+
+    .rbc-off-range-bg {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .rbc-off-range {
+        opacity: 0.2;
+    }
+
+    .rbc-header {
+        padding: 1rem 0.5rem;
+        color: $secondary;
+        text-transform: uppercase;
+    }
+
+    .rbc-date-cell {
+        padding: 1rem;
+    }
+
+    .rbc-today {
+        background: $primary;
+    }
+
+    .rbc-event {
+        background: $secondary;
+        font-size: 0.75rem;
+    }
+}
+
+.calendar {
+    .arrows > * {
+        margin-left: 1rem;
+        cursor: pointer;
+        transition: all 0.5s ease;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
+
+.rbc-row-segment .rbc-event-content {
+    white-space: pre-wrap;
+}

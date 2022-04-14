@@ -1,0 +1,65 @@
+// Helpers
+$spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}rem !important;
+        }
+
+        .m-#{$space} {
+            margin: #{$space}rem !important;
+        }
+
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}rem !important;
+        }
+
+        .p-#{$space} {
+            padding: #{$space}rem !important;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+.justify-content-around {
+    justify-content: space-around;
+}
+.justify-content-end {
+    justify-content: flex-end;
+}
+.justify-content-evenly {
+    justify-content: space-evenly;
+}
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+.align-items-start {
+    align-items: flex-start;
+}
+.align-items-end {
+    align-items: flex-end;
+}
+
+.relative {
+    position: relative;
+}
+
+.text-uppercase {
+     text-transform: uppercase;
+}

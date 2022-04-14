@@ -1,0 +1,42 @@
+button {
+    background: none;
+    appearance: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    font-family: Montserrat, sans-serif;
+    border: 0;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    background: $primary;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 100;
+    border-radius: 4px;
+
+    &.light {
+        background: white;
+        color: $primary;
+    }
+
+    &.secondary {
+        background: $secondary;
+        color: #fff;
+    }
+
+    &.lg {
+        min-width: 320px;
+    }
+
+    &.block {
+        display: block;
+        width: fit-content;
+    }
+}
