@@ -1,5 +1,5 @@
 @import './reset.scss';
-@import '~react-big-calendar/lib/css/react-big-calendar.css';
+@import '~react-big-calendar/lib/sass/styles';
 @import '~react-multi-carousel/lib/styles.css';
 @import '~animate.css/animate.css';
 @import './variables.scss';
@@ -1239,7 +1239,7 @@ li.animate__animated.visible.animate__fadeInRight:nth-child(3):hover:before, li.
     }
 
     .modal-container.mt-3.mw-lg.w-100.text-light.markdown {
-        top: 20%;
+        // top: 20%;
     }
 }
 

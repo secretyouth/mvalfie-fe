@@ -10,11 +10,11 @@
         margin-top: 0 !important;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         overflow-y: scroll;
 
-        @media screen and (min-device-width: 768px) {
-            align-items: center;
+        @media screen and (max-device-width: 767x) {
+            // align-items: center;
         }
 
         & > .modal-container {
