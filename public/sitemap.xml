@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>http://localhost:8002</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/about_us</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/articles</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/become-an-owner</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/catering</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/dashboard</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.494Z</lastmod></url>
+<url><loc>http://localhost:8002/insights</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/login</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/luxury-boat-hire</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/privacy-policy</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/rates</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/reset-password</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+<url><loc>http://localhost:8002/sitemap-luxury-hire.xml</loc><changefreq>weekly</changefreq><priority>0.7</priority><lastmod>2022-05-01T02:47:07.495Z</lastmod></url>
+</urlset>

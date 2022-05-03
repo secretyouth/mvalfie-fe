@@ -1,0 +1,18 @@
+# *
+User-agent: *
+Allow: /
+
+# black-listed-bot
+User-agent: black-listed-bot
+Disallow: /dashboard
+Disallow: /login
+Disallow: /reset-password
+
+# Host
+Host: http://localhost:8002
+
+# Sitemaps
+Sitemap: http://localhost:8002/sitemap.xml
+Sitemap: http://localhost:8002/sitemap-boats.xml
+Sitemap: http://localhost:8002/sitemap-pages.xml
+Sitemap: http://localhost:8002/sitemap-articles.xml
