@@ -4,6 +4,7 @@ import Head from 'next/head'
 import $ from 'jquery'
 
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar'
+
 import PublicGcal from 'public-gcal-fetch'
 import format from 'date-fns/format'
 import parse from 'date-fns/parse'
