@@ -4,7 +4,7 @@
 `npm run dev`
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-API is currently hooked to production Strapi CMS deployment (api.mvalfie.com.au)
+API is currently hooked to production Strapi CMS deployment (api.mvalfieandco.com.au)
 
 **NODE 13.14.x**
 

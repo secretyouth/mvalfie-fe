@@ -33,7 +33,7 @@ export default function Privacy() {
                     content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
                 />
                 <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
+                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script>
             </Head>
 
             <Nav />
@@ -134,7 +134,7 @@ export default function Privacy() {
                         <h3>Policy Updates</h3>
                         <p>This Policy may change from time to time and is available on our website.</p>
                         <h3>Privacy Policy Complaints and Enquiries</h3>
-                        <p>If you have any queries or complaints about our Privacy Policy please contact us at: info@mvalfie.com.au</p>
+                        <p>If you have any queries or complaints about our Privacy Policy please contact us at: info@mvalfieandco.com.au</p>
                     </div>
                 </div>
             </section>

@@ -6,7 +6,7 @@ export function getCookie(name) {
 
     return matches ? decodeURIComponent(matches[1]) : undefined
 }
-// export const baseURL = process.env.API_URL || 'https://api.mvalfie.com.au'
+// export const baseURL = process.env.API_URL || 'https://api.mvalfieandco.com.au'
 // //export const baseURL = 'http://localhost:1337'
 
 export const baseURL = process.env.API_URL || 'https://api.mvalfieandco.com.au'

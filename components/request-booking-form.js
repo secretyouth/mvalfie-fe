@@ -10,7 +10,7 @@ const capitalize = (s) => {
 }
 
 export default function RequestBookingForm({ data = {}, overlay = false, showForm = true, general = false, closeForm, user }) {
-    console.log('requestBooking', data);
+    console.log('requestBooking', data)
     const [form, setForm] = useState({})
     const [loader, showLoader] = useState(false)
     const [success, showSuccess] = useState(false)
@@ -46,10 +46,10 @@ export default function RequestBookingForm({ data = {}, overlay = false, showFor
             e.preventDefault()
             showError(false)
             showLoader(true)
-            let subject = 'Booking Request - mvalfie.com.au'
+            let subject = 'Booking Request - mvalfieandco.com.au'
 
             // if not general, grab details from the logged in user.
-            if (user) subject = '[Owner] Booking Request - mvalfie.com.au'
+            if (user) subject = '[Owner] Booking Request - mvalfieandco.com.au'
 
             if (data.Email_subject) subject = data.Email_subject
 
@@ -93,7 +93,7 @@ export default function RequestBookingForm({ data = {}, overlay = false, showFor
     }
     return (
         <div className={formClass}>
-            <form className="mt-3 mw-lg w-100 text-light" >
+            <form className="mt-3 mw-lg w-100 text-light">
                 {overlay && <i className="budicon-cross-ui icon-btn close lg" onClick={animateFormClose} />}
                 <h2 className="">{data.Title}</h2>
                 {data.Text && <div className="mb-4 markdown" dangerouslySetInnerHTML={{ __html: marked(data.Text) }} />}

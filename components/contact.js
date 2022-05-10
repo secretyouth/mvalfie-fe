@@ -44,11 +44,11 @@ export default function Contact({ boat = 'ALFIE', overlay = false, showForm = tr
             e.preventDefault()
             showError(false)
             showLoader(true)
-            let subject = 'Booking Request - mvalfie.com.au'
+            let subject = 'Booking Request - mvalfieandco.com.au'
 
             // if not general, grab details from the logged in user.
             if (user) {
-                subject = '[Owner] Booking Request - mvalfie.com.au'
+                subject = '[Owner] Booking Request - mvalfieandco.com.au'
             }
 
             console.log('=======FORM==================')
@@ -59,7 +59,7 @@ export default function Contact({ boat = 'ALFIE', overlay = false, showForm = tr
                 to: 'ownerbookings@mvalfieandco.com.au',
                 replyTo: form.email,
                 templateId: 'd-d8710e8c222e49a9a9484bc26ebf5ad3',
-                subject: 'Booking Request - mvalfie.com.au',
+                subject: 'Booking Request - mvalfieandco.com.au',
                 dynamicTemplateData: {
                     subject,
                     firstname: form.firstname,
@@ -100,7 +100,7 @@ export default function Contact({ boat = 'ALFIE', overlay = false, showForm = tr
                 <h2 className="">Booking Inquiry</h2>
                 <p className="mb-4">
                     Please submit your booking inquiry and our team will get back to you shortly. Alternatively, you can contact us on 0476 000 888 or
-                    info@mvalfie.com.au
+                    info@mvalfieandco.com.au
                 </p>
 
                 {loader && <Loader full light lg />}

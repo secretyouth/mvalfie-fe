@@ -12,14 +12,14 @@ app.prepare().then(() => {
 
     // redirect to SSL
     server.use(sslRedirect())
-    
+
     // redirect old urls
     server.use((req, res, next) => {
-        if (req.hostname === 'www.mvalfie.com.au' || req.hostname === 'mvalfie.com.au' || req.hostname === 'mvalfieandco.com.au') {
+        if (req.hostname === 'www.mvalfieandco.com.au' || req.hostname === 'mvalfieandco.com.au') {
             return res.redirect(301, `${process.env.BASE_URL}${req.url}`)
         }
 
-        next();
+        next()
     })
 
     server.all('*', (req, res) => {

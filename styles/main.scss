@@ -91,6 +91,48 @@ body {
     }
 }
 
+// Video for page
+.video-hero.page-video-hero {
+    background: black;
+    height: 60vh;
+    width: 100%;
+
+    .video-wrapper {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    & .video {
+        object-fit: cover;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 60vh;
+    }
+
+    & .video-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 2rem;
+
+        @media screen and (min-device-width: 1200px) {
+            padding: 0;
+        }
+    }
+}
+
+.video-wrapper > video {
+    max-width: 100%;
+}
+
 .blur {
     position: fixed;
     background: transparent;
@@ -1577,3 +1619,5 @@ li.animate__animated.visible.animate__fadeInRight:nth-child(3):hover:before, li.
         font-size: 3rem;
     }
 }
+
+
