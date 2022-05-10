@@ -4,25 +4,24 @@ import { useRouter } from 'next/router'
 import $ from 'jquery'
 
 import api, { getUser, logout } from '../helpers/api'
-import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form';
+import { useHubspotForm } from '@aaronhayes/react-use-hubspot-form'
 import HubSpotFormModalNav from './hubspot-form2'
 
 export default function Nav() {
-
     const [navItems, setNavItems] = useState([])
     const [charterHireItems, setCharterHireItems] = useState([])
     const [openedMenu, setMenu] = useState(false)
     const [user, setUser] = useState({})
-    const [modalData, setModalData] = useState({});
+    const [modalData, setModalData] = useState({})
     const [overlayModal, showOverlayModal] = useState(false)
 
     const { loaded, error, formCreated } = useHubspotForm({
         portalId: '9041877',
         formId: '59a74f48-e3cf-4448-af2e-4096b67a5941',
-        target: '#my-hubspot-form-nav'
-    });
+        target: '#my-hubspot-form-nav',
+    })
 
-    const showModal = (data) => {        
+    const showModal = (data) => {
         if (data === undefined) {
             data = null
         }
@@ -56,26 +55,25 @@ export default function Nav() {
 
         $('.nav-wrapper li a').on('click', function (e) {
             //e.preventDefault();
-            e.stopImmediatePropagation();
-            var thisLink = $(this);
-            var subMenu = thisLink.siblings('ul');
+            e.stopImmediatePropagation()
+            var thisLink = $(this)
+            var subMenu = thisLink.siblings('ul')
             if (subMenu.length > 0) {
-                subMenu.slideToggle();
-                return false;
-            }
-            else {
-                $('body').removeClass('nav-active');
-                setMenu(false);
+                subMenu.slideToggle()
+                return false
+            } else {
+                $('body').removeClass('nav-active')
+                setMenu(false)
                 if (thisLink.hasClass('openmodal')) {
                     showModal({
                         loaded: loaded,
                         error: error,
                         formCreated: formCreated,
-                        FormName: 'Request Booking'
-                    });
+                        FormName: 'Request Booking',
+                    })
                 }
             }
-        });
+        })
 
         //let openmodal = document.querySelector('.nav-wrapper li.openmodal a');
         //openmodal.addEventListener('click', function (e) {
@@ -88,7 +86,7 @@ export default function Nav() {
         //    });
         //});
 
-        $('.nav-wrapper .nested li a').on('click', toggleMenu);
+        $('.nav-wrapper .nested li a').on('click', toggleMenu)
 
         async function getBoats() {
             const { data: boats } = await api.get(`boats`)
@@ -102,8 +100,8 @@ export default function Nav() {
             setCharterHireItems(charters)
         }
 
-        //getBoats()
-        //getCharterHires()
+        getBoats()
+        getCharterHires()
 
         const grabUser = async () => {
             setUser(await getUser())
@@ -113,9 +111,8 @@ export default function Nav() {
 
         navItems && charterHireItems
         {
-            //$('.nav-wrapper .nested li a').on('click', toggleMenu);
+            $('.nav-wrapper .nested li a').on('click', toggleMenu)
         }
-
     }, [])
 
     const animateMenuIn = () => {
@@ -163,17 +160,15 @@ export default function Nav() {
     }
 
     const toggle = (e) => {
-        e.preventDefault();
-        $('body').removeClass('nav-active');
-        setMenu(false);
-        return false;
-        //var subMenu = e.target.valueOf().nextSibling;
-        //if (subMenu.classList.contains('active')){
-        //    subMenu.classList.remove('active');
-        //}
-        //else {
-        //    subMenu.classList.add('active');
-        //}
+        e.preventDefault()
+        $('body').removeClass('nav-active')
+        setMenu(false)
+        var subMenu = e.target.valueOf().nextSibling
+        if (subMenu.classList.contains('active')) {
+            subMenu.classList.remove('active')
+        } else {
+            subMenu.classList.add('active')
+        }
     }
 
     return (
@@ -194,20 +189,20 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li className="animate__animated">
-                        <a>Boats</a>
+                        <a class="nested-menu">Boats</a>
 
-                        {/*{navItems.length > 0 && (*/}
-                        {/*    <ul className="nested" style={{ display: 'none' }}>*/}
-                        {/*        {navItems.map((nav, index) => (*/}
-                        {/*            <li className="animate__animated" key={index} style={{ display: nav.Visible ? 'block' : 'none' }}>*/}
-                        {/*                <Link href={`/boats/${nav.Page_slug}`} passHref>*/}
-                        {/*                    <a>{nav.Boat_name}</a>*/}
-                        {/*                </Link>*/}
-                        {/*            </li>*/}
-                        {/*        ))}*/}
-                        {/*    </ul>*/}
-                        {/*)}*/}
-                        <ul className="nested" style={{ display: 'none' }}>
+                        {navItems.length > 0 && (
+                            <ul className="nested" style={{ display: 'none' }}>
+                                {navItems.map((nav, index) => (
+                                    <li className="animate__animated" key={index} style={{ display: nav.Visible ? 'block' : 'none' }}>
+                                        <Link href={`/boats/${nav.Page_slug}`} passHref>
+                                            <a>{nav.Boat_name}</a>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {/* <ul className="nested" style={{ display: 'none' }}>
                             <li>
                                 <a href="/boats/bruce">Bruce</a>
                             </li>
@@ -216,23 +211,23 @@ export default function Nav() {
                                     <a>G5</a>
                                 </Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </li>
                     <li className="animate__animated">
-                        <a>Luxury Charter Hire</a>
+                        <a class="nested-menu">Luxury Bareboat Hire</a>
 
-                        {/*{charterHireItems.length > 0 && (*/}
-                        {/*    <ul className="nested" style={{ display: 'none' }}>*/}
-                        {/*        {charterHireItems.map((nav, index) => (                                    */}
-                        {/*            <li className="animate__animated" key={index}>*/}
-                        {/*                <Link href={`/luxury_charter_hires/${nav.Page_slug}`} passHref>*/}
-                        {/*                    <a>{nav.Page_title}</a>*/}
-                        {/*                </Link>*/}
-                        {/*            </li>*/}
-                        {/*        ))}*/}
-                        {/*    </ul>*/}
-                        {/*)}*/}
-                        <ul className="nested" style={{ display: 'none' }}>
+                        {charterHireItems.length > 0 && (
+                            <ul className="nested" style={{ display: 'none' }}>
+                                {charterHireItems.map((nav, index) => (
+                                    <li className="animate__animated" key={index}>
+                                        <Link href={`/luxury_charter_hires/${nav.Page_slug}`} passHref>
+                                            <a>{nav.Hero_video_subtitle}</a>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {/* <ul className="nested" style={{ display: 'none' }}>
                             <li>
                                 <a href="/luxury-boat-charter-hire-sydney">Sydney</a>
                             </li>
@@ -244,7 +239,7 @@ export default function Nav() {
                             <li>
                                 <a href="/luxury-boat-charter-hire-whitsundays">Whitsundays</a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </li>
                     <li className="animate__animated">
                         <Link href="/insights" passHref>
@@ -257,17 +252,17 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li className="animate__animated">
-                        <Link href="/catering" passHref>
-                            <a>Catering</a>
+                        <Link href="/boat-syndicate-sydney-gold-coast" passHref>
+                            <a>Become An Member</a>
                         </Link>
                     </li>
                     <li className="animate__animated">
                         <Link href="javascript:void(0)" passHref>
-                            <a className='openmodal'>Booking Inquiry</a>
+                            <a className="openmodal">Booking Inquiry</a>
                         </Link>
                     </li>
                     <li className="animate__animated">
-                        <a className='openmodal'>Contact</a>
+                        <a className="openmodal">Contact</a>
                     </li>
                     {/*<li className="animate__animated">*/}
                     {/*    <Link href="/articles" passHref>*/}

@@ -1205,7 +1205,12 @@ footer.footer ul:nth-child(2) li:first-child a:hover, footer.footer ul:nth-child
     border-top: 0;
 }
 
-#top .nav-wrapper ul li:nth-child(3):before, #top .nav-wrapper ul li:nth-child(4):before {
+.nested-menu {
+    display: flex;
+    width: 100%;
+}
+
+#top .nav-wrapper ul li .nested-menu:before {
     font-size: 20px;
     content: "\e825";
     color: #8f7255;
@@ -1214,7 +1219,7 @@ footer.footer ul:nth-child(2) li:first-child a:hover, footer.footer ul:nth-child
     text-align: center;
     z-index: -1;
     position: absolute;
-    left: 260px;
+    right: -30px;
     top: 15px;
     transform: rotate(90deg);
     transition: ease-in 0.3s all;
@@ -1224,17 +1229,6 @@ footer.footer ul:nth-child(2) li:first-child a:hover, footer.footer ul:nth-child
     cursor: pointer;
 }
 
-#top .nav-wrapper ul li:nth-child(3):before {
-    left: 87px;
-}
-
-#top .nav-wrapper ul li:nth-child(3) a {
-    width: 120px;
-}
-
-#top .nav-wrapper ul li:nth-child(4) a {
-    width: 280px;
-}
 
 #top .nav-wrapper ul li.active:before {
     transform: rotate(-90deg);
