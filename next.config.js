@@ -9,13 +9,9 @@ module.exports = {
     async rewrites() {
         return [
             {
-                source: '/luxury_charter_hires/:slug', // Matched parameters can be used in the destination
-                destination: '/luxury-boat-charter-hire-:slug',
+                destination: '/luxury_charter_hires/:slug', // Matched parameters can be used in the destination
+                source: '/luxury-boat-charter-hire-:slug',
             },
-            // {
-            //     source: '/luxury-boat-charter-hire-:slug',
-            //     destination: '/luxury_charter_hires/:slug', // Matched parameters can be used in the destination
-            // },
             {
                 source: '/boat-syndicate-sydney-gold-coast',
                 destination: '/become-an-owner', // Matched parameters can be used in the destination
