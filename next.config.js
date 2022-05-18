@@ -10,7 +10,7 @@ module.exports = {
         return [
             {
                 destination: '/luxury_charter_hires/:slug', // Matched parameters can be used in the destination
-                source: '/luxury-boat-charter-hire-:slug',
+                source: '/luxury-bareboat-hire-:slug',
             },
             {
                 source: '/boat-syndicate-sydney-gold-coast',
@@ -25,11 +25,11 @@ module.exports = {
                 destination: '/boat-syndicate-sydney-gold-coast',
                 permanent: true,
             },
-            // {
-            //     source: '/luxury_charter_hires/:slug',
-            //     destination: '/luxury-bareboat-hire-:slug',
-            //     permanent: true,
-            // },
+            {
+                source: '/luxury_charter_hires/:slug',
+                destination: '/luxury-bareboat-hire-:slug',
+                permanent: true,
+            },
             // {
             //   source: '/articles',
             //   destination: '/insights',
