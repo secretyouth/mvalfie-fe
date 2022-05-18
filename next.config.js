@@ -6,22 +6,18 @@ module.exports = withVideos()
 //}
 
 module.exports = {
-    async rewrites() {
-        return [
-            // {
-            //     source: '/luxury-boat-charter-hire-:slug',
-            //     destination: '/luxury_charter_hires/:slug', // Matched parameters can be used in the destination
-            // },
-            // {
-            //     source: '/luxury_charter_hires/:slug',
-            //     destination: '/luxury-bareboat-hire-:slug', // Matched parameters can be used in the destination
-            // },
-            // {
-            //     source: '/boat-syndicate-sydney-gold-coast',
-            //     destination: '/become-an-owner', // Matched parameters can be used in the destination
-            // },
-        ]
-    },
+    // async rewrites() {
+    //     return [
+    //         {
+    //             source: '/luxury-boat-charter-hire-:slug',
+    //             destination: '/luxury_charter_hires/:slug' // Matched parameters can be used in the destination
+    //         },
+    //         {
+    //             source: '/boat-syndicate-sydney-gold-coast',
+    //             destination: '/become-an-owner' // Matched parameters can be used in the destination
+    //         },
+    //     ]
+    // },
     async redirects() {
         return [
             {
@@ -32,6 +28,31 @@ module.exports = {
             {
                 source: '/luxury_charter_hires/:slug',
                 destination: '/luxury-bareboat-hire-:slug',
+                permanent: true,
+            },
+            // {
+            //   source: '/articles',
+            //   destination: '/insights',
+            //   permanent: true,
+            // },
+            {
+                source: '/boats/awol',
+                destination: '/',
+                permanent: true,
+            },
+            {
+                source: '/boats/alfie',
+                destination: '/',
+                permanent: true,
+            },
+            {
+                source: '/rates',
+                destination: '/',
+                permanent: true,
+            },
+            {
+                source: '/dashboard-new',
+                destination: '/',
                 permanent: true,
             },
         ]
