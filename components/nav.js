@@ -194,7 +194,7 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li className="animate__animated">
-                        <a class="nested-menu">Boats</a>
+                        <a className="nested-menu">Boats</a>
 
                         {navItems.length > 0 && (
                             <ul className="nested" style={{ display: 'none' }}>
@@ -219,7 +219,7 @@ export default function Nav() {
                         </ul> */}
                     </li>
                     <li className="animate__animated">
-                        <a class="nested-menu">Luxury Bareboat Hire</a>
+                        <a className="nested-menu">Luxury Bareboat Hire</a>
 
                         {charterHireItems.length > 0 && (
                             <ul className="nested" style={{ display: 'none' }}>

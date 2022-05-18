@@ -64,7 +64,7 @@ const Page = ({ page, error = '' }) => {
             {page.Content.map((content, index) => {
                 if (content.__component === 'single.hero-video') {
                     return (
-                        <section className="video-hero page-video-hero">
+                        <section className="video-hero page-video-hero" key={index}>
                             <div className="video-wrapper">
                                 <video
                                     playsInline
