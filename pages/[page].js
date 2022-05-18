@@ -197,6 +197,15 @@ const Page = ({ page, error = '' }) => {
 
 // This also gets called at build time
 export async function getServerSideProps({ params }) {
+    if (params.page.includes('.php')) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: true,
+            },
+        }
+    }
+
     const pageContent = await api.get(`pages?Page_slug=${params.page}`)
 
     if (pageContent.data.length == 0) {

@@ -16,10 +16,6 @@ module.exports = {
                 source: '/boat-syndicate-sydney-gold-coast',
                 destination: '/become-an-owner', // Matched parameters can be used in the destination
             },
-            {
-                source: '/*.php',
-                destination: '/',
-            },
         ]
     },
     async redirects() {
