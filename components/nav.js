@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import $ from 'jquery'
 
 import api, { getUser, logout } from '../helpers/api'
@@ -158,6 +158,11 @@ export default function Nav() {
         router.push('/login')
         setUser({})
     }
+
+    Router.events.on('routeChangeComplete', () => {
+        $('body').removeClass('nav-active')
+        setMenu(false)
+    })
 
     const toggle = (e) => {
         e.preventDefault()
