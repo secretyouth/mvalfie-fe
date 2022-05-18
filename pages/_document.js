@@ -59,9 +59,9 @@ export default class CustomDocument extends Document {
                                                 `,
                             }}
                         />
+                        <meta name="facebook-domain-verification" content="0aiswji8ex440vg2qi24q36xnsllkh" />
+                        <meta name="google-site-verification" content="y6iqp1nXdyhSw_cFwTegmDyeHKJgtftBPLrT6hitsj4" />
                     </>
-                    <meta name="facebook-domain-verification" content="0aiswji8ex440vg2qi24q36xnsllkh" />
-                    <meta name="google-site-verification" content="y6iqp1nXdyhSw_cFwTegmDyeHKJgtftBPLrT6hitsj4" />
                 </Head>
                 <body>
                     <Main />
