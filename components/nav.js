@@ -252,8 +252,8 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li className="animate__animated">
-                        <Link href="/boat-syndicate-sydney-gold-coast" passHref>
-                            <a>Become An Member</a>
+                        <Link href="/boat-membership-sydney-gold-coast" passHref>
+                            <a>Become A Member</a>
                         </Link>
                     </li>
                     <li className="animate__animated">

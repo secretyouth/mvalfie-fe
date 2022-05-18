@@ -19,8 +19,8 @@ import SpecificationsComponent from '../../components/specifications-component'
 import BoatsComponent from '../../components/boats'
 
 import api from '../../helpers/api'
-import HubspotPortalForm from '../../components/hubspot-portal-form';
-import $ from 'jquery';
+import HubspotPortalForm from '../../components/hubspot-portal-form'
+import $ from 'jquery'
 //import Error from '../_error';
 
 export default function Boat({ page, error = '' }) {
@@ -42,7 +42,9 @@ export default function Boat({ page, error = '' }) {
     return (
         <div className={st.container} id="top">
             <Head>
-                <title>{page.Boat_name} | {process.env.Title || 'MV Alfie'}</title>
+                <title>
+                    {page.Boat_name} | {process.env.Title || 'MV Alfie'}
+                </title>
                 <link rel="icon" href="/favicon.png" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
 
@@ -60,18 +62,27 @@ export default function Boat({ page, error = '' }) {
                 ) : (
                     <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
                 )}
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
+                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script>
             </Head>
 
             <Nav />
 
-            { page.Hero_video && <HeroVideoComponent video={page.Hero_video.url} videoMobile={page.Hero_video_mobile && page.Hero_video_mobile.url} poster={page.Hero_video_image.url} title={page.Hero_video_title} subtitle={page.Hero_video_subtitle} name={page.Boat_name} /> }
+            {page.Hero_video && (
+                <HeroVideoComponent
+                    video={page.Hero_video.url}
+                    videoMobile={page.Hero_video_mobile && page.Hero_video_mobile.url}
+                    poster={page.Hero_video_image.url}
+                    title={page.Hero_video_title}
+                    subtitle={page.Hero_video_subtitle}
+                    name={page.Boat_name}
+                />
+            )}
 
             {/* { page.HeroBanner && <section className="hero-image" style={{ backgroundImage: `url(${page.HeroBanner.url})` }}></section> } */}
 
-            { specs.show &&
+            {specs.show && (
                 <Specifications specifications={specs.Specifications} show={specs.show} background={specs.Background_image.url} setShow={hideSpecs} />
-            }
+            )}
 
             <div className="parralax-container">
                 {page.Content &&
@@ -88,9 +99,14 @@ export default function Boat({ page, error = '' }) {
                                 return <SpecificationsComponent data={content} key={index} toggleSpecs={toggleSpecs} />
                             case 'single.boats':
                                 return <BoatsComponent data={content} key={index} />
-                            case 'single.dynamic-forms1': {
+                            case 'single.dynamic-forms': {
                                 return (
-                                    <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
+                                    <section
+                                        className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                        style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }}
+                                        id="contactForm"
+                                        key={index}
+                                    >
                                         <div className="blocks one" id="booking">
                                             <div className="block primary p-5 mw-lg w-100 relative">
                                                 <DynamicFormComponent data={content} general />
@@ -99,26 +115,47 @@ export default function Boat({ page, error = '' }) {
                                     </section>
                                 )
                             }
-                            case 'single.contact-form1': {
-                                switch(content.Form_type) {
+                            case 'single.contact-form': {
+                                switch (content.Form_type) {
                                     case 'Simple': {
                                         return (
-                                        <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
-                                            <div className="blocks one" id="booking">
-                                                <div className="block primary p-5 mw-lg w-100 relative">
-                                                    <SimpleContactComponent data={content} general />
+                                            <section
+                                                className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                style={{
+                                                    backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined,
+                                                }}
+                                                id="contactForm"
+                                                key={index}
+                                            >
+                                                <div className="blocks one" id="booking">
+                                                    <div className="block primary p-5 mw-lg w-100 relative">
+                                                        <SimpleContactComponent data={content} general />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </section>
-                                    )}
+                                            </section>
+                                        )
+                                    }
                                     default: {
-                                        return page.Charter && (<section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
-                                            <div className="blocks one" id="booking">
-                                                <div className="block primary p-5 mw-lg w-100 relative">
-                                                    <ContactComponent data={content} general />
-                                                </div>
-                                            </div>
-                                        </section>)
+                                        return (
+                                            page.Charter && (
+                                                <section
+                                                    className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                    style={{
+                                                        backgroundImage: content.Background_image
+                                                            ? `url(${content.Background_image.url})`
+                                                            : undefined,
+                                                    }}
+                                                    id="contactForm"
+                                                    key={index}
+                                                >
+                                                    <div className="blocks one" id="booking">
+                                                        <div className="block primary p-5 mw-lg w-100 relative">
+                                                            <ContactComponent data={content} general />
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            )
+                                        )
                                     }
                                 }
                             }
@@ -128,7 +165,7 @@ export default function Boat({ page, error = '' }) {
                                 return <div key={index} />
                         }
                     })}
-                </div>
+            </div>
 
             <Footer />
         </div>
@@ -148,4 +185,3 @@ export async function getServerSideProps({ params }) {
     // Pass post data to the page via props
     return { props: { page: pageContent.data[0] } }
 }
-  

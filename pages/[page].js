@@ -96,6 +96,7 @@ const Page = ({ page, error = '' }) => {
                 {page.Content &&
                     page.Content.length > 0 &&
                     page.Content.map((content, index) => {
+                        console.log(content)
                         switch (content.__component) {
                             case 'page.content-video':
                                 return <VideoComponent data={content} key={index} />
@@ -109,7 +110,7 @@ const Page = ({ page, error = '' }) => {
                                 return <FAQComponent data={content} key={index} />
                             case 'single.boats':
                                 return <BoatsComponent data={content} key={index} />
-                            case 'single.dynamic-forms1': {
+                            case 'single.dynamic-forms': {
                                 return (
                                     <section
                                         className="block-container fluid flex-column contact-bg pt-10 pb-10"
