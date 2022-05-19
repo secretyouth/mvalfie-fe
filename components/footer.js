@@ -184,6 +184,11 @@ export default function Footer() {
                                         <a>G5</a>
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href="/boats/alfie-ii">
+                                        <a>Alfie II</a>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                         <div className="nav-4">

@@ -62,16 +62,16 @@
 
 textarea,
 select,
-input {
-    display: inline-block;
-    border: 0;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem 2rem;
-    border-radius: 0;
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    color: white;
+input, #my-hubspot-form-boat .hs-form-field .input .hs-input {
+    display: inline-block !important;
+    border: 0 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 1rem 2rem !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    color: white !important;
 }
 
 input:-webkit-autofill,
@@ -82,12 +82,13 @@ textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    border: none;
-    background: none;
-    -webkit-text-fill-color: white;
-    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
-    transition: background-color 5000s ease-in-out 0s;
+select:-webkit-autofill:focus, 
+#my-hubspot-form-boat .hs-form-field .input input:-webkit-autofill {
+    border: none !important;
+    background: none  !important;
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
 }
 
 input::-webkit-calendar-picker-indicator {
