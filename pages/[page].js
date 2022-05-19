@@ -96,7 +96,6 @@ const Page = ({ page, error = '' }) => {
                 {page.Content &&
                     page.Content.length > 0 &&
                     page.Content.map((content, index) => {
-                        console.log(content)
                         switch (content.__component) {
                             case 'page.content-video':
                                 return <VideoComponent data={content} key={index} />
