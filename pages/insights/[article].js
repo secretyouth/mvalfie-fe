@@ -12,7 +12,6 @@ import Footer from '../../components/footer'
 import api from '../../helpers/api'
 
 const Article = ({ page, url, error = '' }) => {
-
     //if (error != '')
     //    return <Error statusCode={error} />
 
@@ -21,41 +20,49 @@ const Article = ({ page, url, error = '' }) => {
     return (
         <div className={st.container} id="top">
             <Head>
-                <title>{page.SEO_Title || page.Title} | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
-
-                {page.SEO_Description && <meta name="description" content={page.SEO_Description} /> }
+                <title key="title">
+                    {page.SEO_Title || page.Page_title} | {process.env.Title || 'Alfie & Co'}
+                </title>
                 <meta
-                    name="keywords"
-                    content="Sydney Charter Boat, Sydney Harbour Boat, Sydney Boat Hire, Boat Hire Rates, Booking Price, Booking Rates"
+                    name="description"
+                    content={
+                        page.SEO_Description ||
+                        page.Page_description ||
+                        'Alfie & Co offer private and luxurious vessels, to give our customers access to true exclusivity. Enjoy one of the most sophisticated boating experiences across the country.'
+                    }
+                    key="description"
                 />
-                <meta property="og:url" content={`https://www.mvalfieandco.com.au/${page.slug}`} />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={`${page.SEO_Title || page.Title} | MV Alfie`} />
-                {page.SEO_Description && <meta property="og:description" content={page.SEO_Description} /> }
-                {page.Facebook_image ? (
-                    <meta property="og:image" content={`${page.Facebook_image.url}`} />
-                ) : (
-                    <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
-                )}
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
+                <meta property="og:url" content={`https://www.mvalfieandco.com.au/insights/${page.slug}`} key="og-url" />
+                <meta property="og:title" content={`${page.SEO_Title || page.Page_title} | Alfie & Co`} key="og-title" />
+                <meta
+                    property="og:description"
+                    content={
+                        page.SEO_Description ||
+                        page.Page_description ||
+                        'Alfie & Co offer private and luxurious vessels, to give our customers access to true exclusivity. Enjoy one of the most sophisticated boating experiences across the country.'
+                    }
+                    key="og:description"
+                />
+                {page.Facebook_image && <meta property="og:image" content={`${page.Facebook_image.url}`} key="og-image" />}
             </Head>
 
             <Nav />
 
-            { page.HeroBanner && <section className="hero-image" style={{ backgroundImage: `url(${page.HeroBanner.url})` }}></section> }
-
+            {page.HeroBanner && <section className="hero-image" style={{ backgroundImage: `url(${page.HeroBanner.url})` }}></section>}
 
             <section className="block-container fluid flex-column pt-5 pb-5 text-light">
                 <div className="blocks one mb-5">
                     <div className="block p-5 mw-xl">
                         {/*<p className="breadcrumb mb-2"><Link href={`${url}/articles`}>All Articles</Link> <i className="budicon-chevron-right light ml-1 mr-1" /> <Link href={`${url}/articles/${page.slug}`}>{page.Title}</Link></p>*/}
-                        <p className="breadcrumb mb-2"><Link href={`${url}/insights`}>All Articles</Link> <i className="budicon-chevron-right light ml-1 mr-1" /> <Link href={`${url}/insights/${page.slug}`}>{page.Title}</Link></p>
+                        <p className="breadcrumb mb-2">
+                            <Link href={`${url}/insights`}>All Articles</Link> <i className="budicon-chevron-right light ml-1 mr-1" />{' '}
+                            <Link href={`${url}/insights/${page.slug}`}>{page.Title}</Link>
+                        </p>
                         <h2 className="h2 accent animate__animated animate__fadeInDown">{page.Title}</h2>
-                        <p className="h4 accent animate__animated animate__fadeInDown animate__delay-1s">{format(new Date(page.createdAt), 'dd/MM/yyyy')} | Posted by  MV ALFIE & CO</p>
+                        <p className="h4 accent animate__animated animate__fadeInDown animate__delay-1s">
+                            {format(new Date(page.createdAt), 'dd/MM/yyyy')} | Posted by MV ALFIE & CO
+                        </p>
                         <div className="mb-4 markdown" dangerouslySetInnerHTML={{ __html: marked(page.Content) }} />
-
                     </div>
                 </div>
             </section>
@@ -79,6 +86,5 @@ export async function getServerSideProps({ params }) {
     // Pass post data to the page via props
     return { props: { page: pageContent.data[0], url } }
 }
-  
 
 export default Article

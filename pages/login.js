@@ -64,9 +64,7 @@ export default function Home() {
     return (
         <div className={st.container}>
             <Head>
-                <title>Login | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+                <title key="title">Login | {process.env.Title || 'Alfie & Co'}</title>
             </Head>
 
             <Nav />
@@ -78,11 +76,40 @@ export default function Home() {
                     <div className="block image" />
                     <div className="block p-5 text-light flex flex-column align-items-start justify-content-center">
                         <div className="login-form">
-                            { showForgotPassword ? (
+                            {showForgotPassword ? (
                                 <>
                                     <h1 className="h2">Forgot Password?</h1>
-                                    {!success.visible ?
-                                    <form onSubmit={forgotPassword}>
+                                    {!success.visible ? (
+                                        <form onSubmit={forgotPassword}>
+                                            <input type="hidden" name="mastercard" id="mastercard" />
+                                            <div className="form-item">
+                                                <label>
+                                                    Email address <span>*</span>
+                                                </label>
+                                                <input
+                                                    name="email"
+                                                    type="email"
+                                                    required
+                                                    autoComplete="nope"
+                                                    onChange={(event) => setForm({ ...form, identifier: event.target.value })}
+                                                />
+                                            </div>
+                                            <div className="flex justify-content-between align-items-center mt-4">
+                                                <button className="btn secondary">Reset</button>
+                                            </div>
+
+                                            {error.visible && (
+                                                <p className="error mt-2 mb-0">Password or email address is incorrect. Please try again.</p>
+                                            )}
+                                        </form>
+                                    ) : (
+                                        <p className="mt-2 mb-0">{success.content}</p>
+                                    )}
+                                </>
+                            ) : (
+                                <>
+                                    <h1 className="h2">Owners Login</h1>
+                                    <form onSubmit={login}>
                                         <input type="hidden" name="mastercard" id="mastercard" />
                                         <div className="form-item">
                                             <label>
@@ -96,56 +123,33 @@ export default function Home() {
                                                 onChange={(event) => setForm({ ...form, identifier: event.target.value })}
                                             />
                                         </div>
-                                        <div className="flex justify-content-between align-items-center mt-4">
-                                            <button className="btn secondary">Reset</button>
+                                        <div className="form-item">
+                                            <label>
+                                                Password <span>*</span>
+                                            </label>
+                                            <input
+                                                name="password"
+                                                type="password"
+                                                required
+                                                autoComplete="new-password"
+                                                onChange={(event) => setForm({ ...form, password: event.target.value })}
+                                            />
                                         </div>
-
-                                        {error.visible && <p className="error mt-2 mb-0">Password or email address is incorrect. Please try again.</p>}
-                                    </form>
-                                    :
-                                    <p className="mt-2 mb-0">{success.content}</p>
-                                    }
-                                </>
-                            ) : (
-                                <>
-                                <h1 className="h2">Owners Login</h1>
-                                <form onSubmit={login}>
-                                    <input type="hidden" name="mastercard" id="mastercard" />
-                                    <div className="form-item">
-                                        <label>
-                                            Email address <span>*</span>
-                                        </label>
-                                        <input
-                                            name="email"
-                                            type="email"
-                                            required
-                                            autoComplete="nope"
-                                            onChange={(event) => setForm({ ...form, identifier: event.target.value })}
-                                        />
-                                    </div>
-                                    <div className="form-item">
-                                        <label>
-                                            Password <span>*</span>
-                                        </label>
-                                        <input
-                                            name="password"
-                                            type="password"
-                                            required
-                                            autoComplete="new-password"
-                                            onChange={(event) => setForm({ ...form, password: event.target.value })}
-                                        />
-                                    </div>
-                                    <div className="flex justify-content-between align-items-center mt-4">
-                                        <button className="btn secondary">Login</button>
-                                        {/* <p className="mb-0">
+                                        <div className="flex justify-content-between align-items-center mt-4">
+                                            <button className="btn secondary">Login</button>
+                                            {/* <p className="mb-0">
                                             <a href="">Forgot password?</a>
                                         </p> */}
 
-                                        <button type="button" onClick={toggleView}>Forgot password?</button>
-                                    </div>
+                                            <button type="button" onClick={toggleView}>
+                                                Forgot password?
+                                            </button>
+                                        </div>
 
-                                    {error.visible && <p className="error mt-2 mb-0">Password or email address is incorrect. Please try again.</p>}
-                                </form>
+                                        {error.visible && (
+                                            <p className="error mt-2 mb-0">Password or email address is incorrect. Please try again.</p>
+                                        )}
+                                    </form>
                                 </>
                             )}
                         </div>

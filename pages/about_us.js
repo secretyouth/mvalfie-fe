@@ -60,7 +60,6 @@ const Aboutpage = ({ page }) => {
 
             // $('#hero-video').attr('src', videoSrc)
             // $('#hero-video').get(0).load()
-
         }
     }, [router])
 
@@ -76,37 +75,16 @@ const Aboutpage = ({ page }) => {
         }
 
         setModalData(data ? data : {})
-        console.log('modalData', data);
+        console.log('modalData', data)
         showOverlayModal(!overlayModal)
     }
 
     return (
         <div className={st.container} id="top">
             <Head>
-                <title>Sydney Harbour Luxury Private Charter Vessel | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+                <title key="title">Sydney Harbour Luxury Private Charter Vessel | {process.env.Title || 'Alfie & Co'}</title>
 
-                <meta
-                    name="description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta
-                    name="keywords"
-                    content="Sydney Boat Hire, Sydney Charter Boat, Boat Hire Sydney Harbour, Self Drive Boat Hire Sydney, Sydney Private Boat Hire"
-                />
-                <meta property="og:url" content="https://www.mvalfieandco.com.au/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Sydney Harbour Luxury Private Charter Vessel | MV Alfie" />
-                <meta
-                    property="og:description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script>
-
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-                
+                <meta property="og:url" content="https://www.mvalfieandco.com.au/about-us" key="og-url" />
             </Head>
 
             <Nav />
@@ -127,8 +105,12 @@ const Aboutpage = ({ page }) => {
                     />
                     <div className="blur" />
                     <div className="video-overlay text-center pb-3 about-us-overlay-text">
-                        {page.Hero_video_title && <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{page.Hero_video_title}</h2>}
-                        {page.Hero_video_subtitle && <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p>}
+                        {page.Hero_video_title && (
+                            <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{page.Hero_video_title}</h2>
+                        )}
+                        {page.Hero_video_subtitle && (
+                            <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p>
+                        )}
                         <div className="text-center animate__animated animate__bounce animate__repeat-2 animate__delay-4s">
                             <i className="text-light budicon-arrow-up-down xs" />
                             <p className="text-light">
@@ -142,7 +124,6 @@ const Aboutpage = ({ page }) => {
             {modalData && <QuickViewModal overlay showForm={overlayModal} data={modalData} closeForm={showModal} />}
 
             <div className="parralax-container">
-
                 {page.Content &&
                     page.Content.length > 0 &&
                     page.Content.map((content, index) => {
@@ -157,7 +138,12 @@ const Aboutpage = ({ page }) => {
                                 return <BoatsComponent data={content} quick_view={showModal} key={index} />
                             case 'single.dynamic-forms': {
                                 return (
-                                    <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
+                                    <section
+                                        className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                        style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }}
+                                        id="contactForm"
+                                        key={index}
+                                    >
                                         <div className="blocks one" id="booking">
                                             <div className="block primary p-5 mw-lg w-100 relative">
                                                 <DynamicFormComponent data={content} general />
@@ -170,7 +156,14 @@ const Aboutpage = ({ page }) => {
                                 switch (content.Form_type) {
                                     case 'Simple': {
                                         return (
-                                            <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
+                                            <section
+                                                className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                style={{
+                                                    backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined,
+                                                }}
+                                                id="contactForm"
+                                                key={index}
+                                            >
                                                 <div className="blocks one" id="booking">
                                                     <div className="block primary p-5 mw-lg w-100 relative">
                                                         <SimpleContactComponent data={content} general />
@@ -180,25 +173,42 @@ const Aboutpage = ({ page }) => {
                                         )
                                     }
                                     default: {
-                                        return page.Charter && (<section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
-                                            <div className="blocks one" id="booking">
-                                                <div className="block primary p-5 mw-lg w-100 relative">
-                                                    <ContactComponent data={content} general />
-                                                </div>
-                                            </div>
-                                        </section>)
+                                        return (
+                                            page.Charter && (
+                                                <section
+                                                    className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                    style={{
+                                                        backgroundImage: content.Background_image
+                                                            ? `url(${content.Background_image.url})`
+                                                            : undefined,
+                                                    }}
+                                                    id="contactForm"
+                                                    key={index}
+                                                >
+                                                    <div className="blocks one" id="booking">
+                                                        <div className="block primary p-5 mw-lg w-100 relative">
+                                                            <ContactComponent data={content} general />
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            )
+                                        )
                                     }
                                 }
                             }
                             case 'single.reviews':
-                                return content.reviews.length > 0 && (<ReviewComponent data={content} key={index} />)
+                                return content.reviews.length > 0 && <ReviewComponent data={content} key={index} />
                             case 'nested.repeatative-content':
                                 return (
                                     <>
                                         <DescriptionComponent data={content} key={index} />
                                         <div className="flex justify-content-between align-items-center mt-4 about-btns">
-                                            <a href="/book" className="btn secondary">Booking Enquiry</a>
-                                            <a href="/become-an-owner" className="btn secondary">Become An Owner</a>
+                                            <a href="/book" className="btn secondary">
+                                                Booking Enquiry
+                                            </a>
+                                            <a href="/become-an-owner" className="btn secondary">
+                                                Become An Owner
+                                            </a>
                                         </div>
                                     </>
                                 )

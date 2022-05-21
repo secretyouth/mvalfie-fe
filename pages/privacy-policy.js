@@ -13,27 +13,8 @@ export default function Privacy() {
     return (
         <div className={st.container} id="top">
             <Head>
-                <title>Privacy Policy | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
-
-                <meta
-                    name="description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta
-                    name="keywords"
-                    content="Sydney Boat Hire, Sydney Charter Boat, Boat Hire Sydney Harbour, Self Drive Boat Hire Sydney, Sydney Private Boat Hire"
-                />
-                <meta property="og:url" content="https://www.mvalfieandco.com.au/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="FAQ | MV Alfie" />
-                <meta
-                    property="og:description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script>
+                <title key="title">Privacy Policy | {process.env.Title || 'Alfie & Co'}</title>
+                <meta property="og:url" content="https://www.mvalfieandco.com.au/privacy-policy" key="og-url" />
             </Head>
 
             <Nav />

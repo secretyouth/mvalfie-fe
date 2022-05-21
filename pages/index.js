@@ -76,36 +76,12 @@ const Homepage = ({ page }) => {
 
     return (
         <div className={st.container} id="top">
-            <Head>
-                <title>Sydney Harbour Luxury Private Charter Vessel | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
-
-                <meta
-                    name="description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta
-                    name="keywords"
-                    content="Sydney Boat Hire, Sydney Charter Boat, Boat Hire Sydney Harbour, Self Drive Boat Hire Sydney, Sydney Private Boat Hire"
-                />
-                <meta property="og:url" content="https://www.mvalfieandco.com.au/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="Sydney Harbour Luxury Private Charter Vessel | MV Alfie" />
-                <meta
-                    property="og:description"
-                    content="MV Alfie offers an unforgettable experience for all onboard. This luxurious Sunseeker Predator 68 is equipped for your entertainment and relaxation."
-                />
-                <meta property="og:image" content="https://www.mvalfieandco.com.au/fb-home.jpg" />
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
-            </Head>
-
             <Nav />
 
             <section className="video-hero">
                 <div className="video-wrapper">
                     <video
-                        playsInline                        
+                        playsInline
                         muted
                         loop
                         autoPlay
@@ -118,8 +94,12 @@ const Homepage = ({ page }) => {
                     />
                     <div className="blur" />
                     <div className="video-overlay text-center pb-3">
-                        { page.Hero_video_title && <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{page.Hero_video_title}</h2> }
-                        { page.Hero_video_subtitle && <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p> }
+                        {page.Hero_video_title && (
+                            <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{page.Hero_video_title}</h2>
+                        )}
+                        {page.Hero_video_subtitle && (
+                            <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p>
+                        )}
                         <div className="text-center animate__animated animate__bounce animate__repeat-2 animate__delay-4s">
                             <i className="text-light budicon-arrow-up-down xs" />
                             <p className="text-light">
@@ -133,57 +113,82 @@ const Homepage = ({ page }) => {
             {modalData && <QuickViewModal overlay showForm={overlayModal} data={modalData} closeForm={showModal} />}
 
             <div className="parralax-container">
-
-            {page.Content &&
-                page.Content.length > 0 &&
-                page.Content.map((content, index) => {
-                    switch (content.__component) {
-                        case 'single.content-block':
-                            return <TextComponent data={content} key={index} />
-                        case 'single.slider':
-                            return <SliderComponent data={content} key={index} />
-                        case 'single.pricing-table':
-                            return <PricingComponent data={content} key={index} />
-                        case 'single.boats':
-                            return <BoatsComponent data={content} key={index} quick_view={showModal} />
-                        case 'single.dynamic-forms': {
-                            return (
-                                <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
-                                    <div className="blocks one" id="booking">
-                                        <div className="block primary p-5 mw-lg w-100 relative">
-                                            <DynamicFormComponent data={content} general />
-                                        </div>
-                                    </div>
-                                </section>
-                            )
-                        }
-                        case 'single.contact-form': {
-                            switch(content.Form_type) {
-                                case 'Simple': {
-                                    return (
-                                    <section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
+                {page.Content &&
+                    page.Content.length > 0 &&
+                    page.Content.map((content, index) => {
+                        switch (content.__component) {
+                            case 'single.content-block':
+                                return <TextComponent data={content} key={index} />
+                            case 'single.slider':
+                                return <SliderComponent data={content} key={index} />
+                            case 'single.pricing-table':
+                                return <PricingComponent data={content} key={index} />
+                            case 'single.boats':
+                                return <BoatsComponent data={content} key={index} quick_view={showModal} />
+                            case 'single.dynamic-forms': {
+                                return (
+                                    <section
+                                        className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                        style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }}
+                                        id="contactForm"
+                                        key={index}
+                                    >
                                         <div className="blocks one" id="booking">
                                             <div className="block primary p-5 mw-lg w-100 relative">
-                                                <SimpleContactComponent data={content} general />
+                                                <DynamicFormComponent data={content} general />
                                             </div>
                                         </div>
                                     </section>
-                                )}
-                                default: {
-                                    return page.Charter && (<section className="block-container fluid flex-column contact-bg pt-10 pb-10" style={{ backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined }} id="contactForm" key={index}>
-                                        <div className="blocks one" id="booking">
-                                            <div className="block primary p-5 mw-lg w-100 relative">
-                                                <ContactComponent data={content} general />
-                                            </div>
-                                        </div>
-                                    </section>)
+                                )
+                            }
+                            case 'single.contact-form': {
+                                switch (content.Form_type) {
+                                    case 'Simple': {
+                                        return (
+                                            <section
+                                                className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                style={{
+                                                    backgroundImage: content.Background_image ? `url(${content.Background_image.url})` : undefined,
+                                                }}
+                                                id="contactForm"
+                                                key={index}
+                                            >
+                                                <div className="blocks one" id="booking">
+                                                    <div className="block primary p-5 mw-lg w-100 relative">
+                                                        <SimpleContactComponent data={content} general />
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        )
+                                    }
+                                    default: {
+                                        return (
+                                            page.Charter && (
+                                                <section
+                                                    className="block-container fluid flex-column contact-bg pt-10 pb-10"
+                                                    style={{
+                                                        backgroundImage: content.Background_image
+                                                            ? `url(${content.Background_image.url})`
+                                                            : undefined,
+                                                    }}
+                                                    id="contactForm"
+                                                    key={index}
+                                                >
+                                                    <div className="blocks one" id="booking">
+                                                        <div className="block primary p-5 mw-lg w-100 relative">
+                                                            <ContactComponent data={content} general />
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            )
+                                        )
+                                    }
                                 }
                             }
+                            default:
+                                return <div key={index} />
                         }
-                        default:
-                            return <div key={index} />
-                    }
-                })}
+                    })}
             </div>
             <Footer />
         </div>

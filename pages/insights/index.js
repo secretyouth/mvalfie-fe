@@ -4,7 +4,7 @@ import Link from 'next/link'
 import format from 'date-fns/format'
 
 import Head from 'next/head'
-const readingTime = require('reading-time');
+const readingTime = require('reading-time')
 
 import st from '../../styles/main.module.scss'
 
@@ -14,9 +14,8 @@ import Footer from '../../components/footer'
 import api from '../../helpers/api'
 //import Error from '../_error';
 
-const Articles = ({ page, url, error = '' }) => {
-
-      const sortedList = page.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+const Articles = ({ page, error = '' }) => {
+    const sortedList = page.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     //if (error != '')
     //    return <Error statusCode={error} />
 
@@ -24,25 +23,28 @@ const Articles = ({ page, url, error = '' }) => {
     return (
         <div className={st.container} id="top">
             <Head>
-                <title>Insights | {process.env.Title || 'MV Alfie'}</title>
-                <link rel="icon" href="/favicon.png" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
-
-                <meta name="description" content="Explore sydney and" />
+                <title key="title">Insights | {process.env.Title || 'MV Alfie'}</title>
                 <meta
-                    name="keywords"
-                    content="Sydney Charter Boat, Sydney Harbour Boat, Sydney Boat Hire, Boat Hire Rates, Booking Price, Booking Rates"
+                    name="description"
+                    content={
+                        page.SEO_Description ||
+                        page.Page_description ||
+                        'Alfie & Co offer private and luxurious vessels, to give our customers access to true exclusivity. Enjoy one of the most sophisticated boating experiences across the country.'
+                    }
+                    key="description"
                 />
-                <meta property="og:url" content={`${url}/insights`} />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={`${page.SEO_Title || page.Title} | MV Alfie`} />
-                {page.SEO_Description && <meta property="og:description" content={page.SEO_Description} /> }
-                {page.Facebook_image ? (
-                    <meta property="og:image" content={`${page.Facebook_image.url}`} />
-                ) : (
-                    <meta property="og:image" content={`${url}/fb-home.jpg`} />
-                )}
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
+                <meta property="og:url" content={`https://www.mvalfieandco.com.au/insights`} key="og-url" />
+                <meta property="og:title" content={`${page.SEO_Title || page.Page_title} | Alfie & Co`} key="og-title" />
+                <meta
+                    property="og:description"
+                    content={
+                        page.SEO_Description ||
+                        page.Page_description ||
+                        'Alfie & Co offer private and luxurious vessels, to give our customers access to true exclusivity. Enjoy one of the most sophisticated boating experiences across the country.'
+                    }
+                    key="og-description"
+                />
+                {page.Facebook_image && <meta property="og:image" content={`${page.Facebook_image.url}`} key="og-image" />}
             </Head>
 
             <Nav />
@@ -51,22 +53,29 @@ const Articles = ({ page, url, error = '' }) => {
                 <div className="blocks one mb-5">
                     <div className="block p-5 mw-xl articles">
                         <h2 className="h2 accent animate__animated animate__fadeInDown">Articles</h2>
-                        { sortedList.length > 0 ? sortedList.map((article, index) => (
-                            <div key={index} className="article"> 
-                                {/* { article.HeroBanner && <div className="preview-image" style={{ backgroundImage: `url(${article.HeroBanner.url})` }}></div> } */}
-                                <div className="content">
-                                    <h3 className="h2 alt mb-1">{article.Title}</h3>
-                                    <p className="h4 accent animate__animated animate__fadeInDown">{format(new Date(article.createdAt), 'dd/MM/yyyy')} | Posted by MV ALFIE & CO | { readingTime(article.Content).text }</p>
-                                    <p className="mb-3">{article.Excerpt}</p>
-                                    {/*<Link href={`/articles/${article.slug}`} passHref>*/}
-                                    {/*    <a className="btn secondary">Read Article</a>*/}
-                                    {/*</Link>*/}
-                                    <Link href={`/insights/${article.slug}`} passHref>
-                                        <a className="btn secondary">Read Article</a>
-                                    </Link>
+                        {sortedList.length > 0 ? (
+                            sortedList.map((article, index) => (
+                                <div key={index} className="article">
+                                    {/* { article.HeroBanner && <div className="preview-image" style={{ backgroundImage: `url(${article.HeroBanner.url})` }}></div> } */}
+                                    <div className="content">
+                                        <h3 className="h2 alt mb-1">{article.Title}</h3>
+                                        <p className="h4 accent animate__animated animate__fadeInDown">
+                                            {format(new Date(article.createdAt), 'dd/MM/yyyy')} | Posted by MV ALFIE & CO |{' '}
+                                            {readingTime(article.Content).text}
+                                        </p>
+                                        <p className="mb-3">{article.Excerpt}</p>
+                                        {/*<Link href={`/articles/${article.slug}`} passHref>*/}
+                                        {/*    <a className="btn secondary">Read Article</a>*/}
+                                        {/*</Link>*/}
+                                        <Link href={`/insights/${article.slug}`} passHref>
+                                            <a className="btn secondary">Read Article</a>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        )) : <p>No articles posted yet!</p>}
+                            ))
+                        ) : (
+                            <p>No articles posted yet!</p>
+                        )}
                     </div>
                 </div>
             </section>
@@ -90,6 +99,5 @@ export async function getServerSideProps({ params }) {
     // Pass post data to the page via props
     return { props: { page: pageContent.data, url } }
 }
-  
 
 export default Articles
