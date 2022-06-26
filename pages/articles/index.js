@@ -4,7 +4,7 @@ import Link from 'next/link'
 import format from 'date-fns/format'
 
 import Head from 'next/head'
-const readingTime = require('reading-time');
+const readingTime = require('reading-time')
 
 import st from '../../styles/main.module.scss'
 
@@ -14,7 +14,6 @@ import Footer from '../../components/footer'
 import api from '../../helpers/api'
 
 const Articles = ({ page, url }) => {
-
     if (!page) return <div />
 
     return (
@@ -32,13 +31,13 @@ const Articles = ({ page, url }) => {
                 <meta property="og:url" content={`${url}/articles`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={`${page.SEO_Title || page.Title} | MV Alfie`} />
-                {page.SEO_Description && <meta property="og:description" content={page.SEO_Description} /> }
+                {page.SEO_Description && <meta property="og:description" content={page.SEO_Description} />}
                 {page.Facebook_image ? (
                     <meta property="og:image" content={`${page.Facebook_image.url}`} />
                 ) : (
                     <meta property="og:image" content={`${url}/fb-home.jpg`} />
                 )}
-                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script> 
+                <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/9041877.js"></script>
             </Head>
 
             <Nav />
@@ -47,19 +46,26 @@ const Articles = ({ page, url }) => {
                 <div className="blocks one mb-5">
                     <div className="block p-5 mw-xl articles">
                         <h2 className="h2 accent animate__animated animate__fadeInDown">Articles</h2>
-                        { page.length > 0 ? page.map((article, index) => (
-                            <div key={index} className="article"> 
-                                {/* { article.HeroBanner && <div className="preview-image" style={{ backgroundImage: `url(${article.HeroBanner.url})` }}></div> } */}
-                                <div className="content">
-                                    <h3 className="h2 alt mb-1">{article.Title}</h3>
-                                    <p className="h4 accent animate__animated animate__fadeInDown">{format(new Date(article.createdAt), 'MM/dd/yyyy')} | Posted by {article.created_by.firstname} | { readingTime(article.Content).text }</p>
-                                    <p className="mb-3">{article.Excerpt}</p>
-                                    <Link href={`/articles/${article.slug}`} passHref>
-                                        <a className="btn secondary">Read Article</a>
-                                    </Link>
+                        {page.length > 0 ? (
+                            page.map((article, index) => (
+                                <div key={index} className="article">
+                                    {/* { article.HeroBanner && <div className="preview-image" style={{ backgroundImage: `url(${article.HeroBanner.url})` }}></div> } */}
+                                    <div className="content">
+                                        <h3 className="h2 alt mb-1">{article.Title}</h3>
+                                        <p className="h4 accent animate__animated animate__fadeInDown">
+                                            {format(new Date(article.createdAt), 'MM/dd/yyyy')} | Posted by {article.created_by.firstname} |{' '}
+                                            {readingTime(article.Content).text}
+                                        </p>
+                                        <p className="mb-3">{article.Excerpt}</p>
+                                        <a className="btn secondary" href={`/articles/${article.slug}`} target="_blank">
+                                            Read Article
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        )) : <p>No articles posted yet!</p>}
+                            ))
+                        ) : (
+                            <p>No articles posted yet!</p>
+                        )}
                     </div>
                 </div>
             </section>
@@ -77,6 +83,5 @@ export async function getServerSideProps({ params }) {
     // Pass post data to the page via props
     return { props: { page: pageContent.data, url } }
 }
-  
 
 export default Articles

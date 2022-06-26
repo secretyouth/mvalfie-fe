@@ -74,6 +74,8 @@ const Homepage = ({ page }) => {
         showOverlayModal(!overlayModal)
     }
 
+    console.log([page.Content])
+
     return (
         <div className={st.container} id="top">
             <Nav />

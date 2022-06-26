@@ -219,7 +219,7 @@ export default function Nav() {
                         </ul> */}
                     </li>
                     <li className="animate__animated">
-                        <a className="nested-menu">Luxury Bareboat Hire</a>
+                        <a className="nested-menu">Luxury Boat Hire</a>
 
                         {charterHireItems.length > 0 && (
                             <ul className="nested" style={{ display: 'none' }}>

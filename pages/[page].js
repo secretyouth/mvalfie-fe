@@ -31,8 +31,6 @@ const Page = ({ page, error = '' }) => {
 
     if (!page) return <div />
 
-    console.log(page.Content)
-
     return (
         <div className={st.container} id="top">
             <Head>

@@ -35,7 +35,7 @@ export default function Footer() {
 
             <footer className="footer flex align-items-center justify-content-center text-light">
                 <div className="mw-xl text-center w-100 flex justify-content-between align-items-center">
-                    <div className="logo-section">
+                    <div className="logo-section text-left">
                         <svg className="logo" viewBox="0 0 1581 1558" version="1.1" xmlns="http://www.w3.org/2000/svg">
                             <g id="Page-1" stroke="none" strokeWidth="1" fill="#ffffff" fillRule="nonzero">
                                 <path
@@ -47,11 +47,7 @@ export default function Footer() {
                             </g>
                         </svg>
 
-                        <p>
-                            Here at MV Alfie & Co., we are more than just a charter company, we are experts in luxury. Our private, luxurious vessels
-                            give our customers access to true exclusivity. Enjoy one of the most sophisticated boating experiences across the country.
-                            MV Alfie & Co. creates an exclusive, private & unrivalled luxurious experience for all our passengers.
-                        </p>
+                        <p>MV Alfie & Co creates an unrivaled luxurious experience for all guests and shareholders.</p>
                     </div>
                     {/* <svg className="logo" viewBox="0 0 856 896" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -86,14 +82,18 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="/boat-syndicate-sydney-gold-coast">Become An Owner</a>
+                                    <Link href="/boat-syndicate-sydney-gold-coast" passHref>
+                                        <a>Become An Owner</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/boat-membership-sydney-gold-coast" passHref>
+                                        <a>Become A Member</a>
+                                    </Link>
                                 </li>
                                 {/*<li>*/}
                                 {/*    <a href="#">Testimonials</a>*/}
                                 {/*</li>*/}
-                                <li>
-                                    <a href="/catering">Catering</a>
-                                </li>
                                 <li>
                                     <a
                                         href="#"
@@ -110,22 +110,6 @@ export default function Footer() {
                                         Booking Enquiry
                                     </a>
                                 </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        onClick={(e) => {
-                                            showModal({
-                                                loaded: loaded,
-                                                error: error,
-                                                formCreated: formCreated,
-                                                FormName: 'Request Booking',
-                                                from: 'Footer',
-                                            })
-                                        }}
-                                    >
-                                        Contact
-                                    </a>
-                                </li>
                                 {/*
                         <li>
                             <a href="">Terms &amp; Conditions</a>
@@ -134,9 +118,7 @@ export default function Footer() {
 
                             <ul>
                                 <li>
-                                    <Link href="javascript:void(0)">
-                                        <a>Luxury Charter Hire</a>
-                                    </Link>
+                                    <a>Luxury Boat Hire</a>
                                 </li>
                                 <li>
                                     <a href="/luxury-boat-charter-hire-sydney">Sydney</a>
@@ -172,9 +154,7 @@ export default function Footer() {
 
                             <ul>
                                 <li>
-                                    <Link href="javascript:void(0)">
-                                        <a>Boats</a>
-                                    </Link>
+                                    <a>Boats</a>
                                 </li>
                                 <li>
                                     <a href="/boats/bruce">Bruce</a>
@@ -185,7 +165,7 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/boats/alfie-ii">
+                                    <Link href="/boats/alfie-II">
                                         <a>Alfie II</a>
                                     </Link>
                                 </li>
