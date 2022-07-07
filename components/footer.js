@@ -121,15 +121,15 @@ export default function Footer() {
                                     <a>Luxury Boat Hire</a>
                                 </li>
                                 <li>
-                                    <a href="/luxury-boat-charter-hire-sydney">Sydney</a>
+                                    <a href="/luxury-bareboat-hire-sydney">Sydney</a>
                                 </li>
                                 <li>
-                                    <Link href="/luxury-boat-charter-hire-gold-coast">
+                                    <Link href="/luxury-bareboat-hire-gold-coast">
                                         <a>Gold Coast</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="/luxury-boat-charter-hire-whitsundays">Whitsundays</a>
+                                    <a href="/luxury-bareboat-whitsundays">Whitsundays</a>
                                 </li>
                             </ul>
 
