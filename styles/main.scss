@@ -397,7 +397,7 @@ body {
 }
 
 .react-multi-carousel-track {
-    align-items: center;
+    align-items: flex-start;
 }
 
 .react-multi-carousel-item img {
@@ -856,6 +856,10 @@ section.block-container.fluid.flex-column.pt-5.pb-5.text-light.what-our-client-a
 
 .what-our-client-aboutus .react-multi-carousel-list {
     padding-bottom: 50px;
+}
+
+.review-container {
+    padding: 0 20px 0
 }
 
 span.text-light.boat-slug:before, span.text-light.boat-slug:after {
