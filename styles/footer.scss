@@ -42,6 +42,49 @@
         display: flex;
         justify-content: space-between;
     }
+
+    .vessels {
+        color: $secondary;
+        font-weight: medium;
+    }
+
+
+    @media screen and (max-device-width: 768px) {
+
+    .footer-bottom {
+        align-items: center;
+    }
+
+    .social-media-btns {
+        margin-bottom: 2rem;
+    }
+
+        .logo-section {
+            text-align: center;
+            width: 100%;
+            padding: 0;
+            max-width: none;
+            margin-bottom: 2rem;
+        }
+
+        .nav-item p.h3 {
+            display: none;
+        }
+
+        .nav-container {
+            flex-direction: column;
+            width: 100%;
+        }
+        .nav-item {
+            width: 100%;
+            display: block;
+            text-align: center !important;
+
+            > ul, .h3 {
+                text-align: center !important;
+            }
+        }
+    }
 }
 
 hr {
@@ -52,8 +95,12 @@ hr {
 
 .social-media-btns {
     a, a > svg{
-        max-width: 40px;
+        max-width: 32px;
         height: auto;
         fill:$secondary;
+    }
+
+    a {
+        margin-right: 1rem;
     }
 }

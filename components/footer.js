@@ -94,10 +94,10 @@ export default function Footer() {
 
                     <div className="nav-container">
                         <div className="nav-item">
-                            <p className="h3 mb-1">&nbsp;</p>
-                            <ul className="flex flex-column">
-                                {pages1.map((page) => (
-                                    <li>
+                            <p className="h3 mb-1 text-left">Quick Links</p>
+                            <ul className="flex flex-column text-left">
+                                {pages1.map((page, indx) => (
+                                    <li key={indx}>
                                         <Link href={page.link}>
                                             <a>{page.name}</a>
                                         </Link>
@@ -107,10 +107,10 @@ export default function Footer() {
                         </div>
 
                         <div className="nav-item">
-                            <p className="h3 mb-1">&nbsp;</p>
-                            <ul className="flex flex-column">
-                                {pages2.map((page) => (
-                                    <li>
+                            <p className="h3 mb-1  text-left">&nbsp;</p>
+                            <ul className="flex flex-column  text-left">
+                                {pages2.map((page, indx) => (
+                                    <li key={indx}>
                                         <Link href={page.link}>
                                             <a>{page.name}</a>
                                         </Link>
@@ -119,11 +119,11 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        <div className="nav-item right">
-                            <p className="h3 mb-1 text-right">Vessels</p>
+                        <div className="nav-item right vessels">
+                            <p className="h3 mb-1 text-right">Boats</p>
                             <ul className="flex flex-column text-right">
-                                {pages3.map((page) => (
-                                    <li>
+                                {pages3.map((page, indx) => (
+                                    <li key={indx}>
                                         <Link href={page.link}>
                                             <a>{page.name}</a>
                                         </Link>
