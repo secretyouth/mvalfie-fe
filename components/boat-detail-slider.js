@@ -24,7 +24,7 @@ export default function BoatDetailsSlider({ data, interestPopUp, intresetPopUpDa
         }
 
         setModalData(data ? data : {})
-        
+
         showOverlayModal(!overlayModal)
         //showOverlayInterestModal(!overlayInterestModal)
     }
@@ -40,25 +40,37 @@ export default function BoatDetailsSlider({ data, interestPopUp, intresetPopUpDa
                             {data.Title && <h2 className="h2 accent animate__animated animate__fadeInDown">{data.Title}</h2>}
                             {data.Paragraphs &&
                                 data.Paragraphs.map((paragraph, index) => {
-                                    return paragraph.Content2 && (<div className="mb-4 markdown content-p" dangerouslySetInnerHTML={{ __html: marked(paragraph.Content2) }} key={index} />)
-                                })
-                            }
+                                    return (
+                                        paragraph.Content2 && (
+                                            <div
+                                                className="mb-4 markdown content-p"
+                                                dangerouslySetInnerHTML={{ __html: marked(paragraph.Content2) }}
+                                                key={index}
+                                            />
+                                        )
+                                    )
+                                })}
                         </div>
-                        {
-                            data.boats &&
-                            <BoatsCarouselComponent data={data} quick_view={showModal} />
-                        }
+                        {data.boats && <BoatsCarouselComponent data={data} quick_view={showModal} />}
 
                         <div className="flex justify-content-between align-items-center mt-4 boat-slider-btns">
-                            {
-                                data.Button1_text && <a href={data.Button1_url ? data.Button1_url : "javascript:void(0)"} className="btn secondary" onClick={e => {
-                                    e.preventDefault();
-                                    interestPopUp({ ...intresetPopUpData, modalFor: 'IntrestPopUp' });
-                                }}>{data.Button1_text}</a>
-                            }
-                            {
-                                data.Button2_text && <a href={data.Button2_url ? data.Button2_url : "javascript:void(0)"} className="btn secondary">{data.Button2_text}</a>
-                            }
+                            {data.Button1_text && (
+                                <a
+                                    href={data.Button1_url ? data.Button1_url : 'javascript:void(0)'}
+                                    className="btn secondary"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        interestPopUp({ ...intresetPopUpData, modalFor: 'IntrestPopUp' })
+                                    }}
+                                >
+                                    {data.Button1_text}
+                                </a>
+                            )}
+                            {data.Button2_text && (
+                                <a href={data.Button2_url ? data.Button2_url : 'javascript:void(0)'} className="btn secondary">
+                                    {data.Button2_text}
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>

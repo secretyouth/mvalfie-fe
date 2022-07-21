@@ -67,21 +67,31 @@ const Page = ({ page, error = '' }) => {
                             <div className="video-wrapper">
                                 <video
                                     playsInline
+                                    autoPlay
                                     muted
                                     loop
-                                    autoPlay
-                                    preload="auto"
                                     poster="video-poster-min.jpg"
                                     className="video"
                                     src={content.Video ? content.Video.url : ''}
                                     id="hero-video"
-                                    type="video/mp4"
                                 />
                                 <div className="blur" />
-                                <div className="video-overlay text-center pb-3 about-us-overlay-text">
-                                    {content.Content && (
-                                        <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{content.Content}</h2>
+                                <div className="video-overlay text-center pb-3">
+                                    {content.Content ||
+                                        (content.title && (
+                                            <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">
+                                                {content.Content || content.title}
+                                            </h2>
+                                        ))}
+                                    {content.subtitle && (
+                                        <p className="h3 text-light mt-0 animate__animated animate__fadeIn animate__delay-2s">{content.subtitle}</p>
                                     )}
+                                    <div className="text-center animate__animated animate__bounce animate__repeat-2 animate__delay-1s">
+                                        <i className="text-light budicon-arrow-up-down xs" />
+                                        <p className="text-light">
+                                            <small>Scroll to explore</small>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </section>

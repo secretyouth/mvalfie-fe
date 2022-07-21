@@ -2,9 +2,6 @@ const withVideos = require('next-videos')
 
 module.exports = withVideos()
 
-//module.exports = {
-//}
-
 module.exports = {
     async rewrites() {
         return [
@@ -14,7 +11,11 @@ module.exports = {
             },
             {
                 source: '/boat-syndicate-sydney-gold-coast',
-                destination: '/become-an-owner', // Matched parameters can be used in the destination
+                destination: '/boat-syndicatation', // Matched parameters can be used in the destination
+            },
+            {
+                source: '/become-an-owner',
+                destination: '/boat-syndicatation', // Matched parameters can be used in the destination
             },
         ]
     },
@@ -22,7 +23,12 @@ module.exports = {
         return [
             {
                 source: '/become-an-owner',
-                destination: '/boat-syndicate-sydney-gold-coast',
+                destination: '/boat-syndicatation',
+                permanent: true,
+            },
+            {
+                source: '/boat-syndicate-sydney-gold-coast',
+                destination: '/boat-syndicatation',
                 permanent: true,
             },
             {

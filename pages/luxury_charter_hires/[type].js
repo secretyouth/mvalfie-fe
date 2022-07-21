@@ -95,7 +95,7 @@ const LuxuryHirePage = ({ page, error = '' }) => {
                             <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{page.Hero_video_title}</h2>
                         )}
                         {page.Hero_video_subtitle && (
-                            <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p>
+                            <p className="h3 mt-0 text-light animate__animated animate__fadeIn animate__delay-2s">{page.Hero_video_subtitle}</p>
                         )}
                         <div className="text-center animate__animated animate__bounce animate__repeat-2 animate__delay-4s">
                             <i className="text-light budicon-arrow-up-down xs" />

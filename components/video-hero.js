@@ -31,23 +31,15 @@ export default function VideoHero({ video, videoMobile = null, poster, title, su
         $('#hero-video').attr('src', videoSrc)
         $('#hero-video').get(0).load()
     }, [])
+
     return (
         <section className="video-hero">
             <div className="video-wrapper">
-                <video
-                    playsInline
-                    autoPlay
-                    muted
-                    loop
-                    poster={poster}
-                    className="video"
-                    src={video}
-                    id="hero-video"
-                />
+                <video playsInline autoPlay muted loop poster={poster} className="video" src={video} id="hero-video" />
                 <div className="blur" />
                 <div className="video-overlay text-center pb-3">
-                    { title && <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{title}</h2> }
-                    { subtitle && <p className="h3 text-light animate__animated animate__fadeIn animate__delay-2s">{subtitle}</p> }
+                    {title && <h2 className="text-light mb-1 animate__animated animate__fadeInDown animate__delay-1s">{title}</h2>}
+                    {subtitle && <p className="h3 mt-0 text-light animate__animated animate__fadeIn animate__delay-2s">{subtitle}</p>}
                     <div className="text-center animate__animated animate__bounce animate__repeat-2 animate__delay-1s">
                         <i className="text-light budicon-arrow-up-down xs" />
                         <p className="text-light">

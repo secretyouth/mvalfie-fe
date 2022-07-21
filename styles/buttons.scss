@@ -39,4 +39,14 @@ button {
         display: block;
         width: fit-content;
     }
+
+    &.text {
+        background-color: transparent;
+        text-decoration: underline;
+        padding: 0;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
 }

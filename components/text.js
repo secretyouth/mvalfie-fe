@@ -4,13 +4,13 @@ import marked from 'marked'
 export default function TextComponent({ data }) {
     return (
         <section className="block-container fluid flex-column pt-5 pb-5 text-light dark">
-            <div className="blocks one mb-5">
+            <div className="blocks one">
                 <div className="block p-5 mw-xl">
                     {data.Title && <h2 className="h2 accent animate__animated animate__fadeInDown">{data.Title}</h2>}
-                    {data.Content && <div className="mb-4 markdown" dangerouslySetInnerHTML={{ __html: marked(data.Content) }} />}
+                    {data.Content && <div className="markdown" dangerouslySetInnerHTML={{ __html: marked(data.Content) }} />}
 
                     {data.buttons.length > 0 && (
-                        <div className="flex justify-content-between">
+                        <div className="mt-4 flex justify-content-between text_component-buttons">
                             {data.buttons.map((button, indx) => (
                                 <a href={button.button_url} className="btn mt-3">
                                     {button.button_text}

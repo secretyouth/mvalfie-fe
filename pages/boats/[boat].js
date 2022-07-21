@@ -17,6 +17,7 @@ import SimpleContactComponent from '../../components/simple-contact-form'
 import SliderComponent from '../../components/slider-component'
 import SpecificationsComponent from '../../components/specifications-component'
 import BoatsComponent from '../../components/boats'
+import CtaButtons from '../../components/cta-buttons'
 
 import api from '../../helpers/api'
 import HubspotPortalForm from '../../components/hubspot-portal-form'
@@ -92,6 +93,8 @@ export default function Boat({ page, error = '' }) {
                         switch (content.__component) {
                             case 'single.content-block':
                                 return <TextComponent data={content} key={index} />
+                            case 'single.cta-buttons':
+                                return <CtaButtons data={content} key={index} />
                             case 'single.slider':
                                 return <SliderComponent data={content} key={index} />
                             case 'single.pricing-table':
