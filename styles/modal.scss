@@ -14,13 +14,14 @@
         overflow-y: scroll;
 
         @media screen and (max-device-width: 767x) {
-            // align-items: center;
+            align-items: center;
         }
 
         & > .modal-container {
             background: $primary;
             padding: 3rem;
-            position: relative;
+            position: absolute;
+            top: 2rem;
             margin: 0 !important;
             height: 100%;
 
