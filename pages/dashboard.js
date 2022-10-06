@@ -78,9 +78,10 @@ export default function Home() {
                             calendarId: boatObject.Google_calendar_url,
                         })
 
-                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
+                        // const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
+                        const cal = await gcal.getEvents({ singleEvents: true })
 
-                        const prettyFormat = cal.map((event) => {
+                        const pr ettyFormat = cal.map((event) => {
                             if (event.start.date) return {}
                             if (event.visibility === 'private') return {}
                             return {
