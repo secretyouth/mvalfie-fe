@@ -79,7 +79,7 @@ export default function Home() {
                         })
 
                         // const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
-                        const cal = await gcal.getEvents({ singleEvents: true })
+                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
 
                         const prettyFormat = cal.map((event) => {
                             if (event.start.date) return {}
