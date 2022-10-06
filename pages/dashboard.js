@@ -80,7 +80,7 @@ export default function Home() {
                         })
 
                         // const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
-                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: subMonths(startOfDay(new Date()), 6).toISOString() })
+                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: subMonths(startOfDay(new Date()), 4).toISOString() })
 
                         const prettyFormat = cal.map((event) => {
                             if (event.start.date) return {}
