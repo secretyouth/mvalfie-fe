@@ -11,6 +11,7 @@ import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
 import startOfDay from 'date-fns/startOfDay'
+import subDays from 'date-fns/subDays'
 
 const locales = {
     'en-US': require('date-fns/locale/en-US'),
@@ -79,7 +80,7 @@ export default function Home() {
                         })
 
                         // const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
-                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: startOfDay(new Date()).toISOString() })
+                        const cal = await gcal.getEvents({ singleEvents: true, timeMin: subDays(startOfDay(new Date()), 90).toISOString() })
 
                         const prettyFormat = cal.map((event) => {
                             if (event.start.date) return {}
