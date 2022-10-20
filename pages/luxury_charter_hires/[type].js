@@ -23,6 +23,7 @@ import DescriptionComponent from '../../components/description'
 import BoatDetails from '../../components/boat-details'
 import QuickViewModal from '../../components/quick-view-modal'
 import ReviewComponent from '../../components/review'
+import HubspotPortalForm from '../../components/hubspot-portal-form'
 
 const LuxuryHirePage = ({ page, error = '' }) => {
     const [overlayModal, showOverlayModal] = useState(false)
@@ -202,6 +203,8 @@ const LuxuryHirePage = ({ page, error = '' }) => {
                                 )
                             case 'single.reviews':
                                 return content.reviews.length > 0 && <ReviewComponent data={content} key={index} />
+                            case 'single.hubspot-form':
+                                return <HubspotPortalForm data={content} key={index} />
                             default:
                                 return <div key={index} />
                         }
